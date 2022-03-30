@@ -216,18 +216,20 @@ class Order
 
 	    	// trebao sam i ukupnu cenu da ubacim u bazu
 	    	if ($stat === "Delivered") {
-	    		$this->db->query("INSERT INTO best_selling_product(best_product_id, best_product_qua) VALUES(:p_id, :p_qua)");
+	    		$this->db->query("INSERT INTO best_selling_product(best_product_id, best_product_qua, best_date) VALUES(:p_id, :p_qua, :p_date)");
 	    		$this->db->bind(":p_id", $p_id);
 	    		$this->db->bind(":p_qua", $p_qua);
+	    		$this->db->bind("p_date", date('Y-m-d'));
 	    		$this->db->execute();
 	    	}
 
 	    }
 
 	    if ($stat === "Delivered") {
-	    	$this->db->query("INSERT INTO total_sale(order_id, t_sale) VALUES(:o_id, :t_sale)");
+	    	$this->db->query("INSERT INTO total_sale(order_id, t_sale, sale_date) VALUES(:o_id, :t_sale, :sale_date)");
 	    	$this->db->bind(":o_id", $o_id);
 	    	$this->db->bind(":t_sale", $total);
+	    	$this->db->bind(":sale_date", date('Y-m-d'));
 	    	$this->db->execute();
 	    }
 	}
@@ -391,18 +393,20 @@ class Order
 	    	}
 
 	    	if ($stat === "Delivered") {
-	    		$this->db->query("INSERT INTO best_selling_product(best_product_id, best_product_qua) VALUES(:p_id, :p_qua)");
+	    		$this->db->query("INSERT INTO best_selling_product(best_product_id, best_product_qua, best_date) VALUES(:p_id, :p_qua, :best_date)");
 	    		$this->db->bind(":p_id", $p_id);
 	    		$this->db->bind(":p_qua", $p_qua);
+	    		$this->db->bind(":best_date", date('Y-m-d'));
 	    		$this->db->execute();
 	    	}
 
 	    }
 
 	    if ($stat === "Delivered") {
-	    	$this->db->query("INSERT INTO buy_now_total_sale(buy_now_order_id, buy_now_total) VALUES(:o_id, :t_sale)");
+	    	$this->db->query("INSERT INTO buy_now_total_sale(buy_now_order_id, buy_now_total, buy_now_date) VALUES(:o_id, :t_sale, :b_date)");
 	    	$this->db->bind(":o_id", $o_id);
 	    	$this->db->bind(":t_sale", $total);
+	    	$this->db->bind(":b_date", date('Y-m-d'));
 	    	$this->db->execute();
 	    }
 	}
