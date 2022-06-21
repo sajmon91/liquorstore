@@ -49,14 +49,13 @@ class Account
 	{
 		$hash_password = password_hash($pw, PASSWORD_DEFAULT);
 
-		$this->db->query('INSERT INTO users (first_name, last_name, email, password, role, profile_img) VALUES(:f_name, :l_name, :email, :password, :role, :profile_img)');
+		$this->db->query('INSERT INTO users (first_name, last_name, email, password, role) VALUES(:f_name, :l_name, :email, :password, :role)');
 
 		$this->db->bind(':f_name', $fn);
 		$this->db->bind(':l_name', $ln);
 		$this->db->bind(':email', $em);
 		$this->db->bind(':password', $hash_password);
 		$this->db->bind(':role', 'user');
-		$this->db->bind(':profile_img', 'head_pete_river.png');
 
 		if ($this->db->execute()) {
         	return true;

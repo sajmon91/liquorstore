@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `best_selling_product` (
   `best_id` int(11) NOT NULL AUTO_INCREMENT,
   `best_product_id` int(11) NOT NULL,
   `best_product_qua` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `best_date` date NULL,
+  `best_date` date NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`best_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=71 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -200,7 +200,7 @@ CREATE TABLE IF NOT EXISTS `buy_now_total_sale` (
   `buy_now_total_sale_id` int(11) NOT NULL AUTO_INCREMENT,
   `buy_now_order_id` int(11) NOT NULL,
   `buy_now_total` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `buy_now_date` date NULL,
+  `buy_now_date` date NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`buy_now_total_sale_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -558,7 +558,7 @@ CREATE TABLE IF NOT EXISTS `total_sale` (
   `total_sale_id` int(11) NOT NULL AUTO_INCREMENT,
   `order_id` int(11) NOT NULL,
   `t_sale` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `sale_date` date NULL,
+  `sale_date` date NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`total_sale_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -597,7 +597,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `role` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `profile_img` text COLLATE utf8_unicode_ci NULL,
+  `profile_img` text COLLATE utf8_unicode_ci NOT NULL DEFAULT 'head_pete_river.png',
   PRIMARY KEY (`user_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
