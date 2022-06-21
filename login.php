@@ -57,6 +57,7 @@
 	                <div class="col-md-6">
 	                	<div class="form-group">
 	                		<p>Don't have an account? Sign Up <a href="register.php">here</a></p>
+	                		<p>login as admin use: email - stefan.sajmon@gmail.com and password - 123456 </p>
 	                	</div>
 	                </div>
 	                
